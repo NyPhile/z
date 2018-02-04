@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='header'>
+    <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}' background-size="cover"></image>
+    <view class='page-title'>我的猫咪</view>
+    <view class='page-nav'>
+      <view class='page-nav-news'>
+        <image class='page-nav-icon' src='../images/i_msg.png'></image>
+        <view class='page-nav-name'>消息</view>
+      </view>
+      <view class='page-nav-friends'>
+        <image class='page-nav-icon' src='../images/i_friends.png'></image>
+        <view class='page-nav-name'>好友</view>
+      </view>
+      <view class='page-nav-ground'>
+        <image class='page-nav-icon' src='../images/i_ground.png'></image>
+        <view class='page-nav-name'>广场</view>
+      </view>
+    </view>
+  </view>
+  <view class='main main-nocat' wx:if="{{!userCats.length}}">
+    <image class='cat-nocat' src='../images/m_cat_default.png' mode='aspectFit'></image>
+    <view class='text-nocat'>快来领养属于自己的第一只比特喵咪吧！</view>
+    <view class='btn-normal {{allCatsCount == 0 ? "btn-disabled" : ""}}' bindtap='getACat'>马上领养</view>
+    <text class='tips' wx:if="{{allCatsCount > 0}}">今日还剩<text class='tips-em'>{{allCatsCount}}</text>只喵咪可免费领养</text>
+    <text class='tips' wx:if="{{allCatsCount == 0}}">今日还剩<text class='tips-em'>{{allCatsCount}}</text>只喵咪，明天早点来吧</text>
+  </view>
+  <view class='main' wx:else>
+    <block wx:for="{{userCats}}" wx:for-item="cat">
+      <text class="log-item">{{index + 1}}. {{cat}}</text>
+    </block>
+  </view>
+  <!-- <view class="userinf1">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+  <!-- <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>
