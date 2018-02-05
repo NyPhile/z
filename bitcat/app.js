@@ -36,6 +36,6 @@ App({
   globalData: {
     userInfo: null,
     userCats: [],
-    allCatsCount: Math.random() * 2|0
+    allCatsCount: Math.random() * 4|0
   }
 })

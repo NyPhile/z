@@ -41,8 +41,13 @@ Page({
         this.parents = param.parents;
       }
     }
-    var cat = new CAT({})
-    console.log(cat)
+    var cat = new CAT({ gender: 'male' })
+    this.data.userCats.push(cat)
+    this.data.userCats.push(cat)
+    this.data.userCats.push(cat)
+    this.setData({
+      userCats: this.data.userCats
+    })
   },
   onLoad: function () {
     wx.getUserInfo({
