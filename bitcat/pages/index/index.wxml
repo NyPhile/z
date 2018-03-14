@@ -25,10 +25,14 @@
     <text class='tips' wx:if="{{allCatsCount > 0}}">今日还剩<text class='tips-em'>{{allCatsCount}}</text>只喵咪可免费领养</text>
     <text class='tips' wx:if="{{allCatsCount == 0}}">今日还剩<text class='tips-em'>{{allCatsCount}}</text>只喵咪，明天早点来吧</text>
   </view>
-  <view class='main' wx:else>
-    <block wx:for="{{userCats}}" wx:for-item="cat">
-      <text class="log-item">{{index + 1}}. {{cat}}</text>
-    </block>
+  <view class='main_cats' wx:else>
+    <view wx:for="{{userCats}}" class='card_cat'>
+      <image src='../images/CAT_A.png' class='cat_img'></image>
+      <view class='cat_name'>{{item.id}} <image src='../images/i_gender_{{item.gender}}.png' class='cat_gender'></image></view>
+      <view class='cat_level'>
+        <image wx:for="{{item.level}}" src='../images/i_star.png' class='star'></image>
+      </view>
+    </view>
   </view>
   <!-- <view class="userinf1">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
