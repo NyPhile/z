@@ -8,7 +8,7 @@
 npm-debug.log
 node_modules
 dist
-.idea
-.DS_Store
-.zip
-.rar
+*.idea
+*.DS_Store
+*.zip
+*.rar
