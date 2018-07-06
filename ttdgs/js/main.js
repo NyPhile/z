@@ -6,11 +6,11 @@ const { width, height } = { width:windowWidth * pixelRatio,height: windowHeight 
 console.log(windowWidth, windowHeight)
 const radio = width / 750;console.log(radio, width, height)
 PIXI.interaction.InteractionManager.prototype.mapPositionToPoint = (point, x, y) => {
-  point.x = x * pixelRatio
-  point.y = y * pixelRatio
+  point.x = x * 750 / windowWidth
+  point.y = y * 750 / windowWidth
 }
 let game = new PIXI.Application({
-  width: 750, height: height / radio,
+  width: 750, height: windowHeight / windowWidth * 750,
   backgroundColor: 0x000000,
   view: canvas
 });
@@ -50,6 +50,6 @@ clktext.on("pointerdown", () => {
   clktext.x = 200 + 10 * times;
 });
 clktext.x = 200 + 10 * times;
-clktext.y = 300;
+clktext.y = 900;
 game.stage.addChild(clktext);
 console.log(Tween)
